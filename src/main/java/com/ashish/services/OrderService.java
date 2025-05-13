@@ -43,9 +43,10 @@ public class OrderService {
         if (restaurant == null) {
             System.out.println("None of the restaurant can fulfill the Order.");
         }
-        order.assignOrder(restaurant);
-        orderRepository.placeOrder(order);
-
+        else {
+            order.assignOrder(restaurant);
+            orderRepository.placeOrder(order);
+        }
     }
 
     public boolean isAllItemsAvailable(Restaurant restaurant, Map<String, Integer> items) {
@@ -64,7 +65,7 @@ public class OrderService {
         Map<String, Integer> menu = restaurant.getMenu();
         for (String item : items.keySet()) {
             if (restaurantItems.contains(item)) {
-                total += menu.get(item);
+                total += menu.get(item)*items.get(item);
             }
         }
         return total;
