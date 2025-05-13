@@ -41,7 +41,7 @@ public class OrderService {
             }
         }
         if (restaurant == null) {
-            throw new RestaurantException("None of the restaurant can fulfill the Order.");
+            System.out.println("None of the restaurant can fulfill the Order.");
         }
         order.assignOrder(restaurant);
         orderRepository.placeOrder(order);
